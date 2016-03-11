@@ -9,11 +9,11 @@ package sisfo.perpustakaan;
  *
  * @author LENOVO
  */
-public class Petugas {
+public class Petugas extends Orang{
     private long id;
     
     public void setId(int id){
-        
+        this.id = id;
     }
     public long getId(){
         return id;

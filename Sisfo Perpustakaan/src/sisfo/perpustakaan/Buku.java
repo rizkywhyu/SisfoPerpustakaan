@@ -4,12 +4,13 @@
  * and open the template in the editor.
  */
 package sisfo.perpustakaan;
+import java.util.Date;
 
 /**
  *
  * @author LENOVO
  */
-public class Buku {
+    public class Buku {
     private String judul;
     private String pengarang;
     private int thnMasukBuku;
@@ -17,25 +18,26 @@ public class Buku {
     private String idBuku;
     private boolean status;
     
-    public void addBuku(Buku b){
-        
+    public Buku(String judul, boolean status){
+        this.judul = judul;
+        this.status = status;
     }
     public void setJudul(String judul){
-        
+        this.judul = judul;
     }
     public void setPengarang(String pengarang){
-        
+        this.pengarang = pengarang;
     }
     public void setTahunMasukBuku(int thnMasukBuku){
-        
+        this.thnMasukBuku = thnMasukBuku;
     }
     public void setTipe(String tipe){
-        
+        this.tipe = tipe;
     }
     public void setIdBuku(String idBuku){
-        
+        this.idBuku = idBuku;
     }
-    public String getJudul(String judul){
+    public String getJudul(){
         return judul;
     }
     public String getPengarang(){
