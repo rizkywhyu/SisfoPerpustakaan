@@ -1,6 +1,8 @@
 
 package sisfo.perpustakaan;
 
-public class Orang {
-    
+public abstract class Orang {
+    private String nama;
+    private String password;
+    private String jenisKelamin;
 }
