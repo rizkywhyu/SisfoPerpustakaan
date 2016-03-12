@@ -17,6 +17,9 @@ public class Petugas extends Orang{
     private Buku[] buku = new Buku[1000];
     private int nBuku;
     
+    public Petugas(long id){
+        this.id=id;
+    }
     public void setId(int id){
         this.id = id;
     }
@@ -34,18 +37,20 @@ public class Petugas extends Orang{
         }
     }
     
+    
     public void removeBuku(int idx) {
-        if ((idx < buku.length) && (idx >= 0)) {
-
+            if ((idx < buku.length) && (idx >= 0)) {
+           buku[idx].setStatus(false);
             buku[idx] = null;
-            for (int j = idx; j < buku.length; j++) {
-                buku[idx] = buku[idx + 1];
-            }
-            buku[idx].setStatus(false);
+            
+            for (int j = idx; j < (buku.length-1); j++) {
+                buku[j] = buku[j + 1];                
+           }          
             nBuku--;
         }
 
     }
+    
     
     public void addPeminjaman(int idPeminjaman, int jum){
         if (nPeminjaman<10){
@@ -68,5 +73,11 @@ public class Petugas extends Orang{
             return nPeminjaman;
     }
     
-    
+    public void changeStatusPeminjaman(Anggota a, int n){
+        if (a.getPeminjaman(n).getStatusPeminjaman() == false){
+            a.getPeminjaman(n).setStatusPeminjaman(true);
+        } else if (a.getPeminjaman(n).getStatusPeminjaman() == true){
+            a.getPeminjaman(n).setStatusPeminjaman(false);
+        }
+    }
 }

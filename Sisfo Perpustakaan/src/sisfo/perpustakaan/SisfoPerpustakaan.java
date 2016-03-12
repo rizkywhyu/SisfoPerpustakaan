@@ -25,6 +25,9 @@ public class SisfoPerpustakaan {
         Anggota a3 = new Anggota("113", "38-04", "IF", 2014);
         a3.setNama("Bryan");
 
+        Petugas pt1 = new Petugas(0001);
+        pt1.setNama("Petugas Perpustakaan");
+        
         Buku b1 = new Buku("Buku PBO", true);
         Buku b2 = new Buku("Buku RPL", true);
         Buku b3 = new Buku("Buku MOSI", true);
@@ -43,6 +46,9 @@ public class SisfoPerpustakaan {
         a1.getPeminjaman(0).addBuku(b2);
         a1.getPeminjaman(0).addBuku(b3);
         a1.getPeminjaman(0).addBuku(b4);
+        pt1.changeStatusPeminjaman(a1, 0);
+        
+        System.out.println("Status Peminjaman a1-0: "+a1.getPeminjaman(0).getStatusPeminjaman());
         a1.getPeminjaman(1).addBuku(b6);
 
         a2.getPeminjaman(0).addBuku(b4);
@@ -59,26 +65,24 @@ public class SisfoPerpustakaan {
         a3.displayPinjaman();
         System.out.println("");
         
-        a1.getPeminjaman(0).removeBuku(1);
-        a1.getPeminjaman(0).removeBuku(2);
-
-        
+        a1.getPeminjaman(0).removeBuku(0);
         
 
-        System.out.println("Nama Peminjam: " + a1.getNama());
-        for (int k = 0; k < a1.getNPeminjaman(); k++) {
-            System.out.println("Peminjaman " + (k + 1) + ":");
-            System.out.println("ID Peminjaman: " + a1.getPeminjaman(k).getIdPeminjaman());
-            if (buku.length < a1.getPeminjaman(k).getNBuku()) {
-                System.out.println("Semua Buku Telah Dikembalikan");
-            } else {
-                for (int l = 0; l < a1.getPeminjaman(k).getNBuku(); l++) {
-                    System.out.println("Buku " + (l + 1) + ": " + a1.getPeminjaman(k).getBuku(l).getJudul());
-                }
-            }
 
-        }
-        
+//        System.out.println("Nama Peminjam: " + a1.getNama());
+//        for (int k = 0; k < a1.getNPeminjaman(); k++) {
+//            System.out.println("Peminjaman " + (k + 1) + ":");
+//            System.out.println("ID Peminjaman: " + a1.getPeminjaman(k).getIdPeminjaman());
+//            if (buku.length < a1.getPeminjaman(k).getNBuku()) {
+//                System.out.println("Semua Buku Telah Dikembalikan");
+//            } else {
+//                for (int l = 0; l < a1.getPeminjaman(k).getNBuku(); l++) {
+//                    System.out.println("Buku " + (l + 1) + ": " + a1.getPeminjaman(k).getBuku(l).getJudul());
+//                }
+//            }
+//
+//        }
+        a1.displayPinjaman();
         b2.displayBuku();        
        
     }

@@ -17,6 +17,8 @@ package sisfo.perpustakaan;
     private String tipe;
     private String idBuku;
     private boolean statusPinjam;
+ 
+    
     
     public Buku(String judul, boolean statusPinjam){
         this.judul = judul;
