@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package sisfo.perpustakaan;
-import java.util.Date;
+
 /**
  *
  * @author LENOVO
@@ -56,8 +56,8 @@ public class Anggota extends Orang {
         return thnMasuk;
     }
     
-    public void addPeminjaman(int idPeminjaman, Date tglPeminjaman, Date tglPengembalian, int jum){
-        if (nPeminjaman<100){
+    public void addPeminjaman(int idPeminjaman, int jum){
+        if (nPeminjaman<10){
             peminjaman[nPeminjaman] = new Peminjaman(idPeminjaman, jum);
             nPeminjaman++;
         }else {
@@ -66,14 +66,25 @@ public class Anggota extends Orang {
     }
     
     public Peminjaman getPeminjaman(int n){
-		if (n<100){
-			return peminjaman[n];
-		} else {
-			return null;
-		}
-	}
+        if (n<100){
+                return peminjaman[n];
+        } else {
+                return null;
+        }
+    }
 	
     public int getNPeminjaman(){
             return nPeminjaman;
+    }
+    
+    public void displayPinjaman(){
+        System.out.println("Nama Anggota: "+this.getNama());
+        for (int i = 0; i < this.getNPeminjaman(); i++) {
+            System.out.println("Peminjaman " + (i + 1) + ":");
+            System.out.println("ID Peminjaman: " + this.getPeminjaman(i).getIdPeminjaman());
+            for (int j = 0; j < this.getPeminjaman(i).getNBuku(); j++) {
+                System.out.println("Buku " + (j + 1) + ": " + this.getPeminjaman(i).getBuku(j).getJudul());
+            }
+        }
     }
 }

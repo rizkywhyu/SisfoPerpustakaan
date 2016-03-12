@@ -1,8 +1,6 @@
 
 package sisfo.perpustakaan;
 
-import java.util.Date;
-
 public abstract class Orang {
     private String nama;
     private String password;
