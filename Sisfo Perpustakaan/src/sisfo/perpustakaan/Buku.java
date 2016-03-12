@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package sisfo.perpustakaan;
-import java.util.Date;
+
 
 /**
  *
@@ -16,11 +16,11 @@ import java.util.Date;
     private int thnMasukBuku;
     private String tipe;
     private String idBuku;
-    private boolean status;
+    private boolean statusPinjam;
     
-    public Buku(String judul, boolean status){
+    public Buku(String judul, boolean statusPinjam){
         this.judul = judul;
-        this.status = status;
+        this.statusPinjam = statusPinjam;
     }
     public void setJudul(String judul){
         this.judul = judul;
@@ -37,6 +37,9 @@ import java.util.Date;
     public void setIdBuku(String idBuku){
         this.idBuku = idBuku;
     }
+    public void setStatus(boolean statusPinjam){
+        this.statusPinjam = statusPinjam;
+    }
     public String getJudul(){
         return judul;
     }
@@ -52,5 +55,19 @@ import java.util.Date;
     public String getIdBuku(){
         return idBuku;
     }
-    
+    public boolean getStatus(){
+        return statusPinjam;
+    }
+    public void displayBuku(){
+        System.out.println("ID Buku: "+ this.getIdBuku());
+        System.out.println("Judul Buku: "+ this.getJudul());
+        System.out.println("Pengarang Buku: "+ this.getPengarang());
+        System.out.println("Tipe Buku: "+ this.getTipe());
+        System.out.println("Tahun Buku: "+ this.getThnMasukBuku());
+        if (this.getStatus() == true){
+            System.out.println("Status Buku: Sedang Dipinjam");
+        }else {
+            System.out.println("Status Buku: Tidak Dipinjam");
+        }
+    }
 }
