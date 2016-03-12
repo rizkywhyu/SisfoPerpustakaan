@@ -13,7 +13,7 @@ package sisfo.perpustakaan;
 public class Peminjaman {
 
     private int idPeminjaman;
-    private Buku[] buku = new Buku[1000];
+    private Buku[] buku = new Buku[10];
     private int nBuku;
     private Anggota peminjam;
     private boolean statusPeminjaman;
@@ -40,16 +40,16 @@ public class Peminjaman {
     
     public void removeBuku(int idx) {
         if ((idx < buku.length) && (idx >= 0)) {
-            buku[idx].setStatus(false);
+           buku[idx].setStatus(false);
             buku[idx] = null;
             
-            for (int j = idx; j < buku.length; j++) {
-                buku[idx] = buku[idx + 1];
-            }          
+            for (int j = idx; j < (buku.length-1); j++) {
+                buku[j] = buku[j + 1];                
+           }          
             nBuku--;
-        }
+        //}
     }
-
+}
     public Buku getBuku(int n) {
         if (n < nBuku) {
             return buku[n];
