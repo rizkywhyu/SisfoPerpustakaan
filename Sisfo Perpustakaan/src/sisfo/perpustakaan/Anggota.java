@@ -5,6 +5,7 @@
  */
 package sisfo.perpustakaan;
 
+import java.util.ArrayList;
 /**
  *
  * @author LENOVO
@@ -14,13 +15,14 @@ public class Anggota extends Orang {
     private String kelas;
     private String jurusan;
     private int thnMasuk;
-    private Peminjaman[] peminjaman = new Peminjaman [10];
+    ArrayList<Peminjaman> daftarPeminjaman = new ArrayList<>();
     private int nPeminjaman;
     
-    public Anggota(String nim, String kelas, String jurusan, int thnMasuk){
+    public Anggota(String nama, String password, String jenisKelamin, String nim, String kelas, String jurusan, int thnMasuk){
+        super(nama, password, jenisKelamin);
         this.nim = nim;
         this.kelas = kelas;
-        this.jurusan= jurusan;
+        this.jurusan = jurusan;
         this.thnMasuk = thnMasuk;
         
     }
@@ -56,21 +58,24 @@ public class Anggota extends Orang {
         return thnMasuk;
     }
     
-    public void addPeminjaman(int idPeminjaman, int jum){
-        if (nPeminjaman<10){
-            peminjaman[nPeminjaman] = new Peminjaman(idPeminjaman, jum);
-            nPeminjaman++;
-        }else {
-            System.out.println("Hanya boleh meminjam maksimal 10 buku");
-        }
+    public void addPeminjaman(Peminjaman pe){
+        daftarPeminjaman.add(pe);
+//        daftarPeminjaman.size();
+//        if (nPeminjaman<10){
+//            peminjaman[nPeminjaman] = new Peminjaman(idPeminjaman, jum);
+//            nPeminjaman++;
+//        }else {
+//            System.out.println("Hanya boleh meminjam maksimal 10 buku");
+//        }
     }
     
-    public Peminjaman getPeminjaman(int n){
-        if (n<100){
-                return peminjaman[n];
-        } else {
-                return null;
+    public Peminjaman getPeminjaman(long n){
+        for (Peminjaman peminjaman : daftarPeminjaman) {
+            if (peminjaman.getIdPeminjaman() == n){
+                return peminjaman;
+            }
         }
+        return null;
     }
 	
     public int getNPeminjaman(){
@@ -86,6 +91,18 @@ public class Anggota extends Orang {
                 System.out.println("Buku " + (j + 1) + ": " + this.getPeminjaman(i).getBuku(j).getJudul());
             }
         }
+    }
+    
+    @Override
+    public String toString() {
+        String info = "";
+        info += "Nama: "+ super.getNama() +"\n";
+        info += "NIM: "+ this.getNim()+"\n";
+        info += "Jenis Kelamin: "+ super.getJenisKelamin()+"\n";
+        info += "Kelas: "+ this.getKelas()+"\n";
+        info += "Jurusan: "+ this.getJurusan()+"\n";
+        info += "Tahun Masuk : "+ this.getThnmasuk()+"\n";
+        return info; //To change body of generated methods, choose Tools | Templates.
     }
 
    

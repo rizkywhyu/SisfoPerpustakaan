@@ -6,6 +6,11 @@ public abstract class Orang {
     private String password;
     private String jenisKelamin;
 
+    public Orang(String nama, String password, String jenisKelamin){
+        this.nama = nama;
+        this.password = password;
+        this.jenisKelamin = jenisKelamin;
+    }
     public String getNama() {
         return nama;
     }

@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package sisfo.perpustakaan;
-
+import java.util.ArrayList;
 
 /**
  *
@@ -12,12 +12,13 @@ package sisfo.perpustakaan;
  */
 public class Petugas extends Orang{
     private long id;
-    private Peminjaman[] peminjaman = new Peminjaman[100];
     private int nPeminjaman;
-    private Buku[] buku = new Buku[1000];
+    private ArrayList<Buku> daftarBuku = new ArrayList<>();
     private int nBuku;
+    private ArrayList<Peminjaman> daftarPeminjaman = new ArrayList<>();
     
-    public Petugas(long id){
+    public Petugas(String nama, String password, String jenisKelamin, long id){
+        super(nama, password, jenisKelamin);
         this.id=id;
     }
     public void setId(int id){
@@ -27,57 +28,52 @@ public class Petugas extends Orang{
         return id;
     }
     
-    public void addBuku(Buku b) {
-        if (buku.length > nBuku) {
-            buku[nBuku] = b;
-            b.setStatus(true);
-            nBuku++;
-        } else {
-            System.out.println("Jumlah Pinjaman Buku Kelebihan");
-        }
-    }
-    
-    
-    public void removeBuku(int idx) {
-            if ((idx < buku.length) && (idx >= 0)) {
-           buku[idx].setStatus(false);
-            buku[idx] = null;
-            
-            for (int j = idx; j < (buku.length-1); j++) {
-                buku[j] = buku[j + 1];                
-           }          
-            nBuku--;
-        }
-
-    }
-    
-    
-    public void addPeminjaman(int idPeminjaman, int jum){
-        if (nPeminjaman<10){
-            peminjaman[nPeminjaman] = new Peminjaman(idPeminjaman, jum);
-            nPeminjaman++;
-        }else {
-            System.out.println("Hanya boleh meminjam maksimal 10 buku");
-        }
+    public void addPeminjaman(Peminjaman pe){
+        ArrayList<Peminjaman> daftarPeminjaman = new ArrayList<>();
+        daftarPeminjaman.add(pe);
+        daftarPeminjaman.size();
+//        if (nPeminjaman<10){
+//            peminjaman[nPeminjaman] = new Peminjaman(idPeminjaman, jum);
+//            nPeminjaman++;
+//        }else {
+//            System.out.println("Hanya boleh meminjam maksimal 10 buku");
+//        }
     }
     
     public Peminjaman getPeminjaman(int n){
-        if (n<100){
-                return peminjaman[n];
-        } else {
+        for (Peminjaman peminjaman : daftarPeminjaman) {
+            if (peminjaman.getIdPeminjaman() == n){
+                return peminjaman;
+            } else {
                 return null;
+            }
         }
+        return null;
     }
 	
     public int getNPeminjaman(){
             return nPeminjaman;
     }
     
-    public void changeStatusPeminjaman(Anggota a, int n){
-        if (a.getPeminjaman(n).getStatusPeminjaman() == false){
-            a.getPeminjaman(n).setStatusPeminjaman(true);
-        } else if (a.getPeminjaman(n).getStatusPeminjaman() == true){
-            a.getPeminjaman(n).setStatusPeminjaman(false);
+    public void changeStatusPeminjaman(Anggota a, long n){
+        for (Peminjaman peminjaman : daftarPeminjaman) {
+            if (peminjaman.getIdPeminjaman() == n) {
+                    if (a.getPeminjaman(n).getStatusPeminjaman() == false){
+                    a.getPeminjaman(n).setStatusPeminjaman(true);
+                } else if (a.getPeminjaman(n).getStatusPeminjaman() == true){
+                    a.getPeminjaman(n).setStatusPeminjaman(false);
+                }
+            }
         }
+        
+    }
+    
+    @Override
+    public String toString() {
+        String info = "";
+        info += "Nama: "+ super.getNama() +"\n";
+        info += "ID Petugas: "+ this.getId()+"\n";
+        info += "Jenis Kelamin: "+ super.getJenisKelamin()+"\n";
+        return info; //To change body of generated methods, choose Tools | Templates.
     }
 }
