@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package sisfo.perpustakaan;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 
 /**
@@ -17,6 +18,9 @@ public class Petugas extends Orang{
     private int nBuku;
     private ArrayList<Peminjaman> daftarPeminjaman = new ArrayList<>();
     
+    public Petugas(){
+        super();
+    }
     public Petugas(String nama, String password, String jenisKelamin, long id){
         super(nama, password, jenisKelamin);
         this.id=id;
@@ -75,5 +79,15 @@ public class Petugas extends Orang{
         info += "ID Petugas: "+ this.getId()+"\n";
         info += "Jenis Kelamin: "+ super.getJenisKelamin()+"\n";
         return info; //To change body of generated methods, choose Tools | Templates.
+    }
+    
+     public String getQuote(String masuk) {
+        return "'" + masuk + "'";
+    }
+
+    public ResultSet LoginStaff(String u, String p) {
+        database db = new database();
+        String SQLString = "SELECT * from staff where username= " + getQuote(u) + " AND password = " + getQuote(p) + ";";
+        return db.getData(SQLString);
     }
 }
