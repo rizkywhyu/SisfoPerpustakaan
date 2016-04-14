@@ -1,4 +1,8 @@
 
+import static java.awt.image.ImageObserver.WIDTH;
+import javax.swing.JOptionPane;
+
+
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -221,6 +225,11 @@ public class DaftarPeminjam extends javax.swing.JFrame {
         jLabel6.setText("Laporan");
 
         jButton1.setText("Log out");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Input Peminjaman");
 
@@ -275,6 +284,16 @@ public class DaftarPeminjam extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       int j = javax.swing.JOptionPane.showConfirmDialog(rootPane, "Are you sure?", "WARNING", WIDTH);
+        if(j == JOptionPane.YES_OPTION){
+            LoginPetugas lp = new LoginPetugas();
+            lp.setVisible(true);
+            this.setVisible(false);
+            this.dispose();
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

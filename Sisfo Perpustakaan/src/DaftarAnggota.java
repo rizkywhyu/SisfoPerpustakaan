@@ -174,6 +174,11 @@ public class DaftarAnggota extends javax.swing.JFrame {
         jLabel2.setText("Daftar Peminjam");
 
         jLabel3.setText("Daftar Buku");
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
+        });
 
         jLabel4.setText("Daftar Anggota");
 
@@ -236,6 +241,11 @@ public class DaftarAnggota extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jLabel3MouseClicked
 
     /**
      * @param args the command line arguments

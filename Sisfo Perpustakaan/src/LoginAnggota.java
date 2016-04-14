@@ -3,6 +3,7 @@ import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -119,17 +120,19 @@ public class LoginAnggota extends javax.swing.JFrame {
     }//GEN-LAST:event_NIMActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        //sisfo.perpustakaan.Anggota a = new sisfo.perpustakaan.Anggota();
+        //sisfo.perpustakaan.database db = new sisfo.perpustakaan.database();
         sisfo.perpustakaan.Anggota a = new sisfo.perpustakaan.Anggota();
         sisfo.perpustakaan.database db = new sisfo.perpustakaan.database();
         ResultSet rs = a.LoginStaff(NIM.getText(),Pass.getText());
         try {
             if(rs.next()){
+                javax.swing.JOptionPane.showMessageDialog(null,"Username dan Password yang anda masukan tidak terdaftar!");
+            }else {
                 Home h = new Home();
                 h.setVisible(true);
                 this.setVisible(false);
                 this.dispose();
-            }else {
-                javax.swing.JOptionPane.showMessageDialog(null,"Username dan Password yang anda masukan tidak terdaftar!");
             }
         } catch (SQLException ex) {
             Logger.getLogger(LoginAnggota.class.getName()).log(Level.SEVERE, null, ex);

@@ -5,8 +5,9 @@
  */
 package sisfo.perpustakaan;
 
-import java.sql.ResultSet;
+import java.sql.*;
 import java.util.ArrayList;
+import java.awt.*;
 
 /**
  *
@@ -21,9 +22,9 @@ public class Anggota extends Orang {
     ArrayList<Peminjaman> daftarPeminjaman = new ArrayList<>();
     private int nPeminjaman;
 
-//    public Anggota() {
-//        super();
-//    }
+    public Anggota() {
+        super();
+    }
 
     public Anggota(String nama, String password, String jenisKelamin, String nim, String kelas, String jurusan, int thnMasuk) {
         super(nama, password, jenisKelamin);
@@ -125,7 +126,7 @@ public class Anggota extends Orang {
 
     public void insertAnggota(Anggota a) {
         database db = new database();
-        String s = "insert into anggota values(" + this.nim + ",'" + this.nama + "','" + this.jenisKelamin + "','"+this.jurusan+"','"+this.kelas+"','"+this.thnMasuk+"','"+this.password+"')";
+        String s = "insert into anggota values(" + this.nim + ",'" +super.getNama() + "','" + super.getJenisKelamin()+ "','"+this.jurusan+"','"+this.kelas+"','"+this.thnMasuk+"','"+super.getPassword()+"')";
         db.query(s);
     }
 }

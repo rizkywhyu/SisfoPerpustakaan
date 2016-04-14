@@ -1,4 +1,8 @@
 
+import static java.awt.image.ImageObserver.WIDTH;
+import javax.swing.JOptionPane;
+
+
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -51,8 +55,6 @@ public class DetailBuku extends javax.swing.JFrame {
 
         jLabel2.setText("Id Buku:");
 
-        jTextField1.setText("jTextField1");
-
         jLabel4.setText("Judul:");
 
         jTextField2.setText("jTextField2");
@@ -70,6 +72,11 @@ public class DetailBuku extends javax.swing.JFrame {
         jTextField5.setText("jTextField5");
 
         jButton1.setText("Log out");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Back");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -163,6 +170,15 @@ public class DetailBuku extends javax.swing.JFrame {
        this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        int j = javax.swing.JOptionPane.showConfirmDialog(rootPane, "Are you sure?", "WARNING", WIDTH);
+        if(j == JOptionPane.YES_OPTION){
+            Home h = new Home();
+            h.setVisible(true);
+            this.setVisible(false);
+            this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+    }
     /**
      * @param args the command line arguments
      */
