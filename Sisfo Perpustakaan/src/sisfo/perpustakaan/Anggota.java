@@ -5,60 +5,69 @@
  */
 package sisfo.perpustakaan;
 
+import java.sql.*;
 import java.util.ArrayList;
+import java.awt.*;
+
 /**
  *
  * @author LENOVO
  */
 public class Anggota extends Orang {
+
     private String nim;
     private String kelas;
     private String jurusan;
     private int thnMasuk;
     ArrayList<Peminjaman> daftarPeminjaman = new ArrayList<>();
     private int nPeminjaman;
-    
-    public Anggota(String nama, String password, String jenisKelamin, String nim, String kelas, String jurusan, int thnMasuk){
+
+    public Anggota() {
+        super();
+    }
+
+    public Anggota(String nama, String password, String jenisKelamin, String nim, String kelas, String jurusan, int thnMasuk) {
         super(nama, password, jenisKelamin);
         this.nim = nim;
         this.kelas = kelas;
         this.jurusan = jurusan;
         this.thnMasuk = thnMasuk;
-        
+
     }
-    
-    public void setNim(String nim){
+
+    public void setNim(String nim) {
         this.nim = nim;
     }
-    
-    public void setKelas(String kelas){
+
+    public void setKelas(String kelas) {
         this.kelas = kelas;
     }
-    
-    public void setJurusan(String jurusan){
+
+    public void setJurusan(String jurusan) {
         this.jurusan = jurusan;
     }
-    
-    public void setThnmasuk(int thnMasuk){
+
+    public void setThnmasuk(int thnMasuk) {
         this.thnMasuk = thnMasuk;
     }
-    public String getNim(){
+
+    public String getNim() {
         return nim;
     }
-    
-    public String getKelas(){
+
+    public String getKelas() {
         return kelas;
     }
-    
-    public String getJurusan(){
+
+    public String getJurusan() {
         return jurusan;
     }
-    
-    public int getThnmasuk(){
+
+    public int getThnmasuk() {
         return thnMasuk;
     }
-    
-    public void addPeminjaman(Peminjaman pe){
+
+    public void addPeminjaman(Peminjaman pe) {
         daftarPeminjaman.add(pe);
 //        daftarPeminjaman.size();
 //        if (nPeminjaman<10){
@@ -68,22 +77,22 @@ public class Anggota extends Orang {
 //            System.out.println("Hanya boleh meminjam maksimal 10 buku");
 //        }
     }
-    
-    public Peminjaman getPeminjaman(long n){
+
+    public Peminjaman getPeminjaman(long n) {
         for (Peminjaman peminjaman : daftarPeminjaman) {
-            if (peminjaman.getIdPeminjaman() == n){
+            if (peminjaman.getIdPeminjaman() == n) {
                 return peminjaman;
             }
         }
         return null;
     }
-	
-    public int getNPeminjaman(){
-            return nPeminjaman;
+
+    public int getNPeminjaman() {
+        return nPeminjaman;
     }
-    
-    public void displayPinjaman(){
-        System.out.println("Nama Anggota: "+this.getNama());
+
+    public void displayPinjaman() {
+        System.out.println("Nama Anggota: " + this.getNama());
         for (int i = 0; i < this.getNPeminjaman(); i++) {
             System.out.println("Peminjaman " + (i + 1) + ":");
             System.out.println("ID Peminjaman: " + this.getPeminjaman(i).getIdPeminjaman());
@@ -92,18 +101,32 @@ public class Anggota extends Orang {
             }
         }
     }
-    
+
     @Override
     public String toString() {
         String info = "";
-        info += "Nama: "+ super.getNama() +"\n";
-        info += "NIM: "+ this.getNim()+"\n";
-        info += "Jenis Kelamin: "+ super.getJenisKelamin()+"\n";
-        info += "Kelas: "+ this.getKelas()+"\n";
-        info += "Jurusan: "+ this.getJurusan()+"\n";
-        info += "Tahun Masuk : "+ this.getThnmasuk()+"\n";
+        info += "Nama: " + super.getNama() + "\n";
+        info += "NIM: " + this.getNim() + "\n";
+        info += "Jenis Kelamin: " + super.getJenisKelamin() + "\n";
+        info += "Kelas: " + this.getKelas() + "\n";
+        info += "Jurusan: " + this.getJurusan() + "\n";
+        info += "Tahun Masuk : " + this.getThnmasuk() + "\n";
         return info; //To change body of generated methods, choose Tools | Templates.
     }
 
-   
+    public String getQuote(String masuk) {
+        return "'" + masuk + "'";
+    }
+
+    public ResultSet LoginStaff(String u, String p) {
+        database db = new database();
+        String SQLString = "SELECT * from anggota where NIM= " + getQuote(u) + " AND password = " + getQuote(p) + ";";
+        return db.getData(SQLString);
+    }
+
+    public void insertAnggota(Anggota a) {
+        database db = new database();
+        String s = "insert into anggota values(" + this.nim + ",'" +super.getNama() + "','" + super.getJenisKelamin()+ "','"+this.jurusan+"','"+this.kelas+"','"+this.thnMasuk+"','"+super.getPassword()+"')";
+        db.query(s);
+    }
 }
