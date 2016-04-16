@@ -1,3 +1,5 @@
+package view;
+
 
 import database.database;
 import sisfo.perpustakaan.Anggota;
@@ -22,6 +24,8 @@ public class CreateAccount extends javax.swing.JFrame {
     public CreateAccount() {
         initComponents();
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -41,15 +45,15 @@ public class CreateAccount extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btncreate = new javax.swing.JButton();
         nim = new javax.swing.JTextField();
         nama = new javax.swing.JTextField();
-        jenisk = new javax.swing.JComboBox<>();
+        jenisk = new javax.swing.JComboBox<String>();
         jur = new javax.swing.JTextField();
         kelas = new javax.swing.JTextField();
         tahun = new javax.swing.JTextField();
         pass = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        btnback = new javax.swing.JButton();
 
         jInternalFrame1.setVisible(true);
 
@@ -82,24 +86,24 @@ public class CreateAccount extends javax.swing.JFrame {
 
         jLabel8.setText("Password :");
 
-        jButton1.setText("Create");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btncreate.setText("Create");
+        btncreate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btncreateActionPerformed(evt);
             }
         });
 
-        jenisk.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Laki-Laki", "Perempuan" }));
+        jenisk.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Laki-Laki", "Perempuan" }));
         jenisk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jeniskActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Back");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnback.setText("Back");
+        btnback.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnbackActionPerformed(evt);
             }
         });
 
@@ -111,7 +115,7 @@ public class CreateAccount extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(21, 21, 21)
-                        .addComponent(jButton2))
+                        .addComponent(btnback))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(154, 154, 154)
                         .addComponent(jLabel1))
@@ -135,7 +139,7 @@ public class CreateAccount extends javax.swing.JFrame {
                             .addComponent(tahun)
                             .addComponent(pass))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(btncreate)
                 .addGap(23, 23, 23))
         );
         layout.setVerticalGroup(
@@ -173,8 +177,8 @@ public class CreateAccount extends javax.swing.JFrame {
                     .addComponent(pass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(btncreate)
+                    .addComponent(btnback))
                 .addGap(20, 20, 20))
         );
 
@@ -185,34 +189,13 @@ public class CreateAccount extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jeniskActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        LoginAnggota lga = new LoginAnggota();
-        lga.setVisible(true);
-        this.setVisible(false);
-        this.dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Anggota a = new Anggota();
-        //database.database db = new database.database();
-        a.setNim(nim.getText());
-        a.setNama(nama.getText());
-        a.setJenisKelamin((String) jenisk.getSelectedItem());
-        a.setJurusan(jur.getText());
-        a.setKelas(kelas.getText());
-        a.setThnmasuk(Integer.parseInt(tahun.getText()));
-        a.setPassword(pass.getText());
-        a.insertAnggota(a);
-        javax.swing.JOptionPane.showMessageDialog(null, "Berhasil");
+    private void btnbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbackActionPerformed
         
-        nim.setText("");
-        nama.setText("");
-        jenisk.setSelectedItem("");
-        jur.setText("");
-        kelas.setText("");
-        tahun.setText("");
-        pass.setText("");
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnbackActionPerformed
+
+    private void btncreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncreateActionPerformed
+       
+    }//GEN-LAST:event_btncreateActionPerformed
 
     /**
      * @param args the command line arguments
@@ -250,8 +233,8 @@ public class CreateAccount extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnback;
+    private javax.swing.JButton btncreate;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

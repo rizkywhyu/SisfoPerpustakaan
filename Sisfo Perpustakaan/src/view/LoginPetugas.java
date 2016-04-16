@@ -1,8 +1,13 @@
+package view;
 
+
+import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JButton;
+import javax.swing.JTextField;
 
 
 
@@ -24,6 +29,36 @@ public class LoginPetugas extends javax.swing.JFrame {
     public LoginPetugas() {
         initComponents();
     }
+    
+    public void addListener(ActionListener al) {
+        btnLogin.addActionListener(al);
+    }
+
+    public JTextField getID() {
+        return ID;
+    }
+
+    public void setID(JTextField ID) {
+        this.ID = ID;
+    }
+
+    public JTextField getPassword() {
+        return Password;
+    }
+
+    public void setPassword(JTextField Password) {
+        this.Password = Password;
+    }
+
+    public JButton getBtnLogin() {
+        return btnLogin;
+    }
+
+    public void setBtnLogin(JButton btnLogin) {
+        this.btnLogin = btnLogin;
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -39,7 +74,7 @@ public class LoginPetugas extends javax.swing.JFrame {
         ID = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         Password = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        btnLogin = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -49,10 +84,10 @@ public class LoginPetugas extends javax.swing.JFrame {
 
         jLabel3.setText("Password:");
 
-        jButton1.setText("Login");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnLogin.setText("Login");
+        btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnLoginActionPerformed(evt);
             }
         });
 
@@ -74,7 +109,7 @@ public class LoginPetugas extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addGap(67, 67, 67))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(btnLogin)
                         .addGap(21, 21, 21))))
         );
         layout.setVerticalGroup(
@@ -91,30 +126,16 @@ public class LoginPetugas extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addComponent(btnLogin)
                 .addContainerGap(29, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        sisfo.perpustakaan.Petugas p = new sisfo.perpustakaan.Petugas();
-        database.database db = new database.database();
-        ResultSet rs = p.LoginPetugas(ID.getText(),Password.getText());
-        try {
-            if(rs.next()){
-                DaftarPeminjam dp = new DaftarPeminjam();
-                dp.setVisible(true);
-                this.setVisible(false);
-                this.dispose();
-            }else {
-                javax.swing.JOptionPane.showMessageDialog(null,"Username dan Password yang anda masukan tidak terdaftar!");
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(LoginAnggota.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+        
+    }//GEN-LAST:event_btnLoginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -154,7 +175,7 @@ public class LoginPetugas extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField ID;
     private javax.swing.JTextField Password;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnLogin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

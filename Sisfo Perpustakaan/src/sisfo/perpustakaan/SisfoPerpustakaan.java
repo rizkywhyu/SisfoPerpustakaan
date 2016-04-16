@@ -5,6 +5,8 @@
  */
 package sisfo.perpustakaan;
 
+import Controller.ControllerLoginAnggota;
+
 
 
 /**
@@ -19,7 +21,9 @@ public class SisfoPerpustakaan {
         apk.addAnggota("b", "b", "b", "2", "04", "if", 2014);
         apk.addBuku("coa", "starling", 1990, "pelajaran", "3", true);
         apk.addBuku("rpl", "pressman", 2000, "pelajaran", "4", true);
-        apk.mainMenu();
+//        apk.mainMenu();
+        ControllerLoginAnggota controller = new ControllerLoginAnggota(apk);
+        
         
     }
 }

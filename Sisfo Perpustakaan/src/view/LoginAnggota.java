@@ -1,7 +1,12 @@
+package view;
 
+
+import java.awt.event.ActionListener;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JButton;
+import javax.swing.JTextField;
 
 
 /*
@@ -125,33 +130,20 @@ public class LoginAnggota extends javax.swing.JFrame {
     }//GEN-LAST:event_NIMActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        //sisfo.perpustakaan.Anggota a = new sisfo.perpustakaan.Anggota();
-        database.database db = new database.database();
-        sisfo.perpustakaan.Anggota a = new sisfo.perpustakaan.Anggota();
-//        String nim = NIM.getText();
-//        String password = pass.getText();
-//        Boolean result = false;
-//        
-//        String s = "select * from anggota where nim='"+nim+"' and password = '"+password+"'";
-//        try {
-//            result = db.query(s).;
-//        } catch (Exception e) {
-//        }
+//        //sisfo.perpustakaan.Anggota a = new sisfo.perpustakaan.Anggota();
+//        database.database db = new database.database();
+//        sisfo.perpustakaan.Anggota a = new sisfo.perpustakaan.Anggota();
+////        String nim = NIM.getText();
+////        String password = pass.getText();
+////        Boolean result = false;
+////        
+////        String s = "select * from anggota where nim='"+nim+"' and password = '"+password+"'";
+////        try {
+////            result = db.query(s).;
+////        } catch (Exception e) {
+////        }
 
-        ResultSet rs = a.LoginAnggota(NIM.getText(), pass.getText());
-        try {
-            if (rs.next()) {
-                Home h = new Home();
-                h.setVisible(true);
-                this.setVisible(false);
-                this.dispose();
-
-            } else {
-                javax.swing.JOptionPane.showMessageDialog(null, "Username dan Password yang anda masukan tidak terdaftar!");
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(LoginAnggota.class.getName()).log(Level.SEVERE, null, ex);
-        }
+       
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -166,6 +158,35 @@ public class LoginAnggota extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_passActionPerformed
 
+    public void addListener(ActionListener al) {
+        jButton1.addActionListener(al);
+    }
+
+    public JTextField getNIM() {
+        return NIM;
+    }
+
+    public void setNIM(JTextField NIM) {
+        this.NIM = NIM;
+    }
+
+    public JButton getjButton1() {
+        return jButton1;
+    }
+
+    public void setjButton1(JButton jButton1) {
+        this.jButton1 = jButton1;
+    }
+
+    public JTextField getPass() {
+        return pass;
+    }
+
+    public void setPass(JTextField pass) {
+        this.pass = pass;
+    }
+    
+    
     /**
      * @param args the command line arguments
      */

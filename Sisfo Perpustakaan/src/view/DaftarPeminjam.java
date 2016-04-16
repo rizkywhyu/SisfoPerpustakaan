@@ -1,11 +1,17 @@
+package view;
+
 
 import database.database;
+import java.awt.event.ActionListener;
 import static java.awt.image.ImageObserver.WIDTH;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 
 
 
@@ -21,40 +27,72 @@ import javax.swing.JOptionPane;
  */
 public final class DaftarPeminjam extends javax.swing.JFrame {
 int j;
-    /**tampil
+    /*tampil
      * Creates new form DaftarPeminjam
      */
-    public DaftarPeminjam() {
-        initComponents();
-        try {
-            tampilPeminjaman();
-        } catch (SQLException ex) {
-            Logger.getLogger(DaftarPeminjam.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        this.setLocationRelativeTo(null);
+     public void addListener(ActionListener al) {
+        btnInput.addActionListener(al);
+        btnLogout.addActionListener(al);
+       
     }
-    public void tampilPeminjaman() throws SQLException{
-        database db = new database();
 
-        String s = "select b.id_buku, b.judul, a.nim, a.nama,p.status_pinjam from buku b, anggota a, peminjaman p where b.id_buku=p.id_buku and a.nim=p.nim";
-        ResultSet resultset = db.getData(s);
-        while (j > 0) {
-            j--;
-            tabelpinjam.setValueAt("", j, 0);
-            tabelpinjam.setValueAt("", j, 1);
-            tabelpinjam.setValueAt("", j, 2);
-            tabelpinjam.setValueAt("", j, 3);
-            tabelpinjam.setValueAt("", j, 4);
-        }
-        while (resultset.next()) {
-            tabelpinjam.setValueAt(resultset.getString("ID_Buku"), j, 0);
-            tabelpinjam.setValueAt(resultset.getString("Judul"), j, 1);
-            tabelpinjam.setValueAt(resultset.getString("nim"), j, 2);
-            tabelpinjam.setValueAt(resultset.getString("nama"), j, 3);
-            tabelpinjam.setValueAt(resultset.getBoolean("status_pinjam"), j, 4);
-            j++;
-        }
+    public JButton getBtnInput() {
+        return btnInput;
     }
+
+    public void setBtnInput(JButton btnInput) {
+        this.btnInput = btnInput;
+    }
+
+    public JButton getBtnLogout() {
+        return btnLogout;
+    }
+
+    public void setBtnLogout(JButton btnLogout) {
+        this.btnLogout = btnLogout;
+    }
+
+    public JLabel getLbanggota() {
+        return lbanggota;
+    }
+
+    public void setLbanggota(JLabel lbanggota) {
+        this.lbanggota = lbanggota;
+    }
+
+    public JLabel getLbbuku() {
+        return lbbuku;
+    }
+
+    public void setLbbuku(JLabel lbbuku) {
+        this.lbbuku = lbbuku;
+    }
+
+    public JLabel getLblaporan() {
+        return lblaporan;
+    }
+
+    public void setLblaporan(JLabel lblaporan) {
+        this.lblaporan = lblaporan;
+    }
+
+    public JLabel getLbpeminjam() {
+        return lbpeminjam;
+    }
+
+    public void setLbpeminjam(JLabel lbpeminjam) {
+        this.lbpeminjam = lbpeminjam;
+    }
+
+    public JTable getTableBuku() {
+        return tableBuku;
+    }
+
+    public void setTableBuku(JTable tableBuku) {
+        this.tableBuku = tableBuku;
+    }
+     
+     
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -77,14 +115,14 @@ int j;
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tabelpinjam = new javax.swing.JTable();
+        tableBuku = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        lbpeminjam = new javax.swing.JLabel();
+        lbbuku = new javax.swing.JLabel();
+        lbanggota = new javax.swing.JLabel();
+        lblaporan = new javax.swing.JLabel();
+        btnLogout = new javax.swing.JButton();
+        btnInput = new javax.swing.JButton();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -109,7 +147,7 @@ int j;
 
         jLabel2.setText(" Buku yang dipinjam:");
 
-        tabelpinjam.setModel(new javax.swing.table.DefaultTableModel(
+        tableBuku.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -216,7 +254,7 @@ int j;
                 "ID Buku", "Judul Buku", "NIM", "Nama", "Status"
             }
         ));
-        jScrollPane1.setViewportView(tabelpinjam);
+        jScrollPane1.setViewportView(tableBuku);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -241,25 +279,25 @@ int j;
 
         jLabel1.setText("Home");
 
-        jLabel3.setText("Daftar Peminjaman");
+        lbpeminjam.setText("Daftar Peminjaman");
 
-        jLabel4.setText("Daftar Buku");
+        lbbuku.setText("Daftar Buku");
 
-        jLabel5.setText("Daftar Anggota");
+        lbanggota.setText("Daftar Anggota");
 
-        jLabel6.setText("Laporan");
+        lblaporan.setText("Laporan");
 
-        jButton1.setText("Log out");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnLogout.setText("Log out");
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnLogoutActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Input Peminjaman");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnInput.setText("Input Peminjaman");
+        btnInput.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnInputActionPerformed(evt);
             }
         });
 
@@ -273,19 +311,19 @@ int j;
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton2)
+                .addComponent(btnInput)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(btnLogout)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addComponent(jLabel3)
+                .addComponent(lbpeminjam)
                 .addGap(59, 59, 59)
-                .addComponent(jLabel4)
+                .addComponent(lbbuku)
                 .addGap(77, 77, 77)
-                .addComponent(jLabel5)
+                .addComponent(lbanggota)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel6)
+                .addComponent(lblaporan)
                 .addGap(33, 33, 33))
             .addGroup(layout.createSequentialGroup()
                 .addGap(240, 240, 240)
@@ -299,23 +337,23 @@ int j;
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6))
+                    .addComponent(lbpeminjam)
+                    .addComponent(lbbuku)
+                    .addComponent(lbanggota)
+                    .addComponent(lblaporan))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton1))
+                    .addComponent(btnInput)
+                    .addComponent(btnLogout))
                 .addGap(19, 19, 19))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
        int j = javax.swing.JOptionPane.showConfirmDialog(rootPane, "Are you sure?", "WARNING", WIDTH);
         if(j == JOptionPane.YES_OPTION){
             LoginPetugas lp = new LoginPetugas();
@@ -323,14 +361,14 @@ int j;
             this.setVisible(false);
             this.dispose();
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnLogoutActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInputActionPerformed
         Peminjaman p = new Peminjaman();
         p.setVisible(true);
         this.setVisible(false);
         this.dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnInputActionPerformed
 
     /**
      * @param args the command line arguments
@@ -368,14 +406,10 @@ int j;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnInput;
+    private javax.swing.JButton btnLogout;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -387,6 +421,10 @@ int j;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane5;
-    private javax.swing.JTable tabelpinjam;
+    private javax.swing.JLabel lbanggota;
+    private javax.swing.JLabel lbbuku;
+    private javax.swing.JLabel lblaporan;
+    private javax.swing.JLabel lbpeminjam;
+    private javax.swing.JTable tableBuku;
     // End of variables declaration//GEN-END:variables
 }
