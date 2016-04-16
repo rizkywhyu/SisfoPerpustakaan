@@ -1,7 +1,14 @@
 package view;
 
 
+import Controller.ControllerCreateAccount;
 import database.database;
+import java.awt.Component;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import sisfo.perpustakaan.Anggota;
 
 
@@ -23,6 +30,8 @@ public class CreateAccount extends javax.swing.JFrame {
      */
     public CreateAccount() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.setTitle("Input Anggota");
     }
     
     
@@ -48,7 +57,7 @@ public class CreateAccount extends javax.swing.JFrame {
         btncreate = new javax.swing.JButton();
         nim = new javax.swing.JTextField();
         nama = new javax.swing.JTextField();
-        jenisk = new javax.swing.JComboBox<String>();
+        jenisk = new javax.swing.JComboBox<>();
         jur = new javax.swing.JTextField();
         kelas = new javax.swing.JTextField();
         tahun = new javax.swing.JTextField();
@@ -93,7 +102,13 @@ public class CreateAccount extends javax.swing.JFrame {
             }
         });
 
-        jenisk.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Laki-Laki", "Perempuan" }));
+        nim.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nimActionPerformed(evt);
+            }
+        });
+
+        jenisk.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Laki-Laki", "Perempuan" }));
         jenisk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jeniskActionPerformed(evt);
@@ -197,6 +212,80 @@ public class CreateAccount extends javax.swing.JFrame {
        
     }//GEN-LAST:event_btncreateActionPerformed
 
+    private void nimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nimActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nimActionPerformed
+
+    public JButton getBtncreate() {
+        return btncreate;
+    }
+
+    public void setBtncreate(JButton btncreate) {
+        this.btncreate = btncreate;
+    }
+
+    public JComboBox<String> getJenisk() {
+        return jenisk;
+    }
+
+    public void setJenisk(JComboBox<String> jenisk) {
+        this.jenisk = jenisk;
+    }
+
+    public JTextField getJur() {
+        return jur;
+    }
+
+    public void setJur(JTextField jur) {
+        this.jur = jur;
+    }
+
+    public JTextField getKelas() {
+        return kelas;
+    }
+
+    public void setKelas(JTextField kelas) {
+        this.kelas = kelas;
+    }
+
+    public JTextField getNama() {
+        return nama;
+    }
+
+    public void setNama(JTextField nama) {
+        this.nama = nama;
+    }
+
+    public JTextField getNim() {
+        return nim;
+    }
+
+    public void setNim(JTextField nim) {
+        this.nim = nim;
+    }
+
+    public JTextField getPass() {
+        return pass;
+    }
+
+    public void setPass(JTextField pass) {
+        this.pass = pass;
+    }
+
+    public JTextField getTahun() {
+        return tahun;
+    }
+
+    public void setTahun(JTextField tahun) {
+        this.tahun = tahun;
+    }
+    public void addListener(ActionListener e){
+        btncreate.addActionListener(e);
+        btnback.addActionListener(e);
+    }
+    public void showMessage(Component  c, String s){
+        JOptionPane.showMessageDialog(c, s);
+    }
     /**
      * @param args the command line arguments
      */
@@ -252,4 +341,8 @@ public class CreateAccount extends javax.swing.JFrame {
     private javax.swing.JTextField pass;
     private javax.swing.JTextField tahun;
     // End of variables declaration//GEN-END:variables
+
+    public void addListener(ControllerCreateAccount aThis) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

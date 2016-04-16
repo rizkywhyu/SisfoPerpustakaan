@@ -7,6 +7,7 @@ package Controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import model.AnggotaModel;
 import sisfo.perpustakaan.Aplikasi;
 import view.DaftarAnggota;
 import view.LoginPetugas;
@@ -28,6 +29,8 @@ public class ControllerDaftarAnggota implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        Object source = e.getSource();
+        AnggotaModel am = new AnggotaModel();
         
     }
 }
