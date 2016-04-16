@@ -87,14 +87,8 @@ public class Petugas extends Orang {
         return info; //To change body of generated methods, choose Tools | Templates.
     }
 
-    public String getQuote(String masuk) {
-        return "'" + masuk + "'";
-    }
+    
 
-    public ResultSet LoginPetugas(String u, String p) {
-        database db = new database();
-        String SQLString = "SELECT * from petugas where id_petugas= " + getQuote(u) + " AND password = " + getQuote(p) + ";";
-        return db.getData(SQLString);
-    }
+   
 
 }

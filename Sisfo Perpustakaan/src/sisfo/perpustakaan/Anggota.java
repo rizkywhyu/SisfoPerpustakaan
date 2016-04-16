@@ -118,22 +118,6 @@ public class Anggota extends Orang {
         return info; //To change body of generated methods, choose Tools | Templates.
     }
 
-    public String getQuote(String masuk) {
-        return "'" + masuk + "'";
-    }
-
-    public ResultSet LoginAnggota(String u, String p) {
-        database db = new database();
-        String SQLString = "SELECT * from anggota where nim= " + getQuote(u) + " AND password = " + getQuote(p) + ";";
-        return db.getData(SQLString);
-    }
-
-    public void insertAnggota(Anggota a) {
-        try {
-            String s = "insert into anggota values(" + a.getNim() + ",'" + a.getNama() + "','" + a.getJenisKelamin() + "','" + a.getJurusan() + "','" + a.getKelas() + "','" + a.getThnmasuk() + "','" + a.getPassword() + "')";
-            stat.executeUpdate(s);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
+   
+   
 }

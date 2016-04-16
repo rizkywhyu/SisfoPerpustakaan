@@ -1,3 +1,10 @@
+package view;
+
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+
 
 
 /*
@@ -18,6 +25,44 @@ public class Home extends javax.swing.JFrame {
     public Home() {
         initComponents();
     }
+    
+    public void addListener(ActionListener al) {
+        btninformasi.addActionListener(al);
+        btnlogout.addActionListener(al);
+       
+    }
+
+    public JTextField getJumlah() {
+        return jumlah;
+    }
+
+    public void setJumlah(JTextField jumlah) {
+        this.jumlah = jumlah;
+    }
+
+    public JTable getTableBuku() {
+        return tableBuku;
+    }
+
+    public void setTableBuku(JTable tableBuku) {
+        this.tableBuku = tableBuku;
+    }
+    
+    public JButton getBtninformasi() {
+        return btninformasi;
+    }
+
+    public void setBtninformasi(JButton btninformasi) {
+        this.btninformasi = btninformasi;
+    }
+
+    public JButton getBtnlogout() {
+        return btnlogout;
+    }
+
+    public void setBtnlogout(JButton btnlogout) {
+        this.btnlogout = btnlogout;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -29,17 +74,17 @@ public class Home extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tableBuku = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jumlah = new javax.swing.JTextField();
+        btninformasi = new javax.swing.JButton();
+        btnlogout = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tableBuku.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null},
                 {null},
@@ -146,7 +191,7 @@ public class Home extends javax.swing.JFrame {
                 "Judul Buku"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tableBuku);
 
         jLabel1.setText("Home");
 
@@ -154,16 +199,14 @@ public class Home extends javax.swing.JFrame {
 
         jLabel3.setText("Jumlah Buku yang Dipinjam:");
 
-        jTextField1.setText("jTextField1");
-
-        jButton1.setText("Informasi Detail Buku");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btninformasi.setText("Informasi Detail Buku");
+        btninformasi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btninformasiActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Log out");
+        btnlogout.setText("Log out");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -173,9 +216,9 @@ public class Home extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jButton1)
+                        .addComponent(btninformasi)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2))
+                        .addComponent(btnlogout))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -185,7 +228,7 @@ public class Home extends javax.swing.JFrame {
                                 .addContainerGap()
                                 .addComponent(jLabel3)
                                 .addGap(18, 18, 18)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jumlah, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(19, 19, 19)
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -208,24 +251,24 @@ public class Home extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jumlah, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(btninformasi)
+                    .addComponent(btnlogout))
                 .addGap(26, 26, 26))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       DetailBuku d = new DetailBuku();
-       d.setVisible(true);
-       this.setVisible(false);
-       this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btninformasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btninformasiActionPerformed
+       
+    }//GEN-LAST:event_btninformasiActionPerformed
 
+
+    
+ 
     /**
      * @param args the command line arguments
      */
@@ -262,13 +305,13 @@ public class Home extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btninformasi;
+    private javax.swing.JButton btnlogout;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jumlah;
+    private javax.swing.JTable tableBuku;
     // End of variables declaration//GEN-END:variables
 }

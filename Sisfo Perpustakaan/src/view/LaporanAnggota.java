@@ -1,3 +1,5 @@
+package view;
+
 
 
 /*
@@ -10,12 +12,12 @@
  *
  * @author Rizky
  */
-public class LaporanInventarisBuku extends javax.swing.JFrame {
+public class LaporanAnggota extends javax.swing.JFrame {
 
     /**
      * Creates new form LaporanInventarisBuku
      */
-    public LaporanInventarisBuku() {
+    public LaporanAnggota() {
         initComponents();
     }
 
