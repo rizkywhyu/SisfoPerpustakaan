@@ -9,7 +9,6 @@ import java.util.logging.Logger;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Rizky
@@ -37,9 +36,9 @@ public class LoginAnggota extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         NIM = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        Pass = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
+        pass = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -69,6 +68,12 @@ public class LoginAnggota extends javax.swing.JFrame {
             }
         });
 
+        pass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -79,9 +84,9 @@ public class LoginAnggota extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel2)
-                            .addComponent(NIM)
+                            .addComponent(NIM, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
                             .addComponent(jLabel3)
-                            .addComponent(Pass, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE))
+                            .addComponent(pass))
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel4)
@@ -104,7 +109,7 @@ public class LoginAnggota extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Pass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
@@ -121,31 +126,45 @@ public class LoginAnggota extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         //sisfo.perpustakaan.Anggota a = new sisfo.perpustakaan.Anggota();
-        //sisfo.perpustakaan.database db = new sisfo.perpustakaan.database();
+        database.database db = new database.database();
         sisfo.perpustakaan.Anggota a = new sisfo.perpustakaan.Anggota();
-        sisfo.perpustakaan.database db = new sisfo.perpustakaan.database();
-        ResultSet rs = a.LoginStaff(NIM.getText(),Pass.getText());
+//        String nim = NIM.getText();
+//        String password = pass.getText();
+//        Boolean result = false;
+//        
+//        String s = "select * from anggota where nim='"+nim+"' and password = '"+password+"'";
+//        try {
+//            result = db.query(s).;
+//        } catch (Exception e) {
+//        }
+
+        ResultSet rs = a.LoginAnggota(NIM.getText(), pass.getText());
         try {
-            if(rs.next()){
-                javax.swing.JOptionPane.showMessageDialog(null,"Username dan Password yang anda masukan tidak terdaftar!");
-            }else {
+            if (rs.next()) {
                 Home h = new Home();
                 h.setVisible(true);
                 this.setVisible(false);
                 this.dispose();
+
+            } else {
+                javax.swing.JOptionPane.showMessageDialog(null, "Username dan Password yang anda masukan tidak terdaftar!");
             }
         } catch (SQLException ex) {
             Logger.getLogger(LoginAnggota.class.getName()).log(Level.SEVERE, null, ex);
         }
-         
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
-       CreateAccount ca = new CreateAccount();
-       ca.setVisible(true);
-       this.setVisible(false);
-       this.dispose();
+        CreateAccount ca = new CreateAccount();
+        ca.setVisible(true);
+        this.setVisible(false);
+        this.dispose();
     }//GEN-LAST:event_jLabel4MouseClicked
+
+    private void passActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_passActionPerformed
 
     /**
      * @param args the command line arguments
@@ -184,11 +203,11 @@ public class LoginAnggota extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField NIM;
-    private javax.swing.JTextField Pass;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JTextField pass;
     // End of variables declaration//GEN-END:variables
 }

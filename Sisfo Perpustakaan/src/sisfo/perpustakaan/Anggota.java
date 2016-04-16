@@ -5,6 +5,7 @@
  */
 package sisfo.perpustakaan;
 
+import database.database;
 import java.sql.*;
 import java.util.ArrayList;
 import java.awt.*;
@@ -21,6 +22,9 @@ public class Anggota extends Orang {
     private int thnMasuk;
     ArrayList<Peminjaman> daftarPeminjaman = new ArrayList<>();
     private int nPeminjaman;
+    private Statement stat;
+    private Connection conn;
+    private ResultSet rs;
 
     public Anggota() {
         super();
@@ -118,15 +122,18 @@ public class Anggota extends Orang {
         return "'" + masuk + "'";
     }
 
-    public ResultSet LoginStaff(String u, String p) {
+    public ResultSet LoginAnggota(String u, String p) {
         database db = new database();
-        String SQLString = "SELECT * from anggota where NIM= " + getQuote(u) + " AND password = " + getQuote(p) + ";";
+        String SQLString = "SELECT * from anggota where nim= " + getQuote(u) + " AND password = " + getQuote(p) + ";";
         return db.getData(SQLString);
     }
 
     public void insertAnggota(Anggota a) {
-        database db = new database();
-        String s = "insert into anggota values(" + this.nim + ",'" +super.getNama() + "','" + super.getJenisKelamin()+ "','"+this.jurusan+"','"+this.kelas+"','"+this.thnMasuk+"','"+super.getPassword()+"')";
-        db.query(s);
+        try {
+            String s = "insert into anggota values(" + a.getNim() + ",'" + a.getNama() + "','" + a.getJenisKelamin() + "','" + a.getJurusan() + "','" + a.getKelas() + "','" + a.getThnmasuk() + "','" + a.getPassword() + "')";
+            stat.executeUpdate(s);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

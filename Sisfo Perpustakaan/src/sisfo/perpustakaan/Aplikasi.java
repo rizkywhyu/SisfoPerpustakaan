@@ -80,6 +80,15 @@ public class Aplikasi {
 //            return null;
 //        }
 //    }
+    public Anggota getAnggota(String nim) {
+        for (Anggota a : daftarAnggota) {
+            if (a.getNim() == nim) {
+                return a;
+            }
+        }
+        return null;
+    }
+
     public void deleteAnggota(Anggota a) {
         daftarAnggota.remove(a);
     }
@@ -321,92 +330,92 @@ public class Aplikasi {
     public void menuEmpat() {
         try {
             System.out.println("PENGELOLAAN PEMINJAMAN");
-        System.out.println("1. Tambah Data Peminjaman");
-        System.out.println("2. Hapus Data Peminjaman (Pengembalian)");
-        System.out.println("3. Lihat Semua Data Peminjaman");
-        System.out.println("4. Cari Data Peminjaman");
-        System.out.println("5. Kembali");
-        System.out.print("Masukkan Pilihan: ");
-        pilih = input.nextInt();
-        switch (pilih) {
-            case 1:
-                System.out.print("Masukkan ID Peminjaman: ");
-                idPeminjaman = input.nextLong();
+            System.out.println("1. Tambah Data Peminjaman");
+            System.out.println("2. Hapus Data Peminjaman (Pengembalian)");
+            System.out.println("3. Lihat Semua Data Peminjaman");
+            System.out.println("4. Cari Data Peminjaman");
+            System.out.println("5. Kembali");
+            System.out.print("Masukkan Pilihan: ");
+            pilih = input.nextInt();
+            switch (pilih) {
+                case 1:
+                    System.out.print("Masukkan ID Peminjaman: ");
+                    idPeminjaman = input.nextLong();
 
-                peminjaman = createPeminjaman(idPeminjaman);
+                    peminjaman = createPeminjaman(idPeminjaman);
 
-                System.out.print("ID Petugas: ");
-                id = input.nextLong();
-                for (Petugas petugas : daftarPetugas) {
-                    if (petugas.getId() == id) {
-                        p = petugas;
-                        break;
-                    }
-                }
-                System.out.print("NIM Anggota: ");
-                nim = input.next();
-                for (Anggota anggota : daftarAnggota) {
-                    if (anggota.getNim().equals(nim)) {
-                        a = anggota;
-                        break;
-                    }
-                }
-                a.addPeminjaman(peminjaman);
-                System.out.print("Jumlah Buku yang Dipinjam: ");
-                jumBuku = input.nextInt();
-                for (int i = 0; i < jumBuku; i++) {
-                    System.out.print("ID Buku-" + (i + 1) + " ");
-                    idBuku = input.next();
-                    for (Buku buku : daftarBuku) {
-                        if (buku.getIdBuku().equals(idBuku)) {
-                            a.getPeminjaman(idPeminjaman).tambahBuku(buku);
+                    System.out.print("ID Petugas: ");
+                    id = input.nextLong();
+                    for (Petugas petugas : daftarPetugas) {
+                        if (petugas.getId() == id) {
+                            p = petugas;
+                            break;
                         }
                     }
-                }
+                    System.out.print("NIM Anggota: ");
+                    nim = input.next();
+                    for (Anggota anggota : daftarAnggota) {
+                        if (anggota.getNim().equals(nim)) {
+                            a = anggota;
+                            break;
+                        }
+                    }
+                    a.addPeminjaman(peminjaman);
+                    System.out.print("Jumlah Buku yang Dipinjam: ");
+                    jumBuku = input.nextInt();
+                    for (int i = 0; i < jumBuku; i++) {
+                        System.out.print("ID Buku-" + (i + 1) + " ");
+                        idBuku = input.next();
+                        for (Buku buku : daftarBuku) {
+                            if (buku.getIdBuku().equals(idBuku)) {
+                                a.getPeminjaman(idPeminjaman).tambahBuku(buku);
+                            }
+                        }
+                    }
 
-                p.changeStatusPeminjaman(a, idPeminjaman);
-                menuEmpat();
-                break;
-            case 2:
-                System.out.print("Masukkan ID Peminjaman: ");
-                idPeminjaman = input.nextLong();
-                for (Peminjaman peminjaman : daftarPeminjaman) {
-                    if (peminjaman.getIdPeminjaman() == idPeminjaman) {
-                        deletePeminjaman(peminjaman);
-                        System.out.println("Peminjaman Telah Terhapus");
-                        break;
-                    } else {
-                        System.out.println("data tidak ditemukan");
+                    p.changeStatusPeminjaman(a, idPeminjaman);
+                    menuEmpat();
+                    break;
+                case 2:
+                    System.out.print("Masukkan ID Peminjaman: ");
+                    idPeminjaman = input.nextLong();
+                    for (Peminjaman peminjaman : daftarPeminjaman) {
+                        if (peminjaman.getIdPeminjaman() == idPeminjaman) {
+                            deletePeminjaman(peminjaman);
+                            System.out.println("Peminjaman Telah Terhapus");
+                            break;
+                        } else {
+                            System.out.println("data tidak ditemukan");
+                        }
                     }
-                }
-                menuEmpat();
-                break;
-            case 3:
-                for (int i = 0; i < (daftarPeminjaman.size()); i++) {
-                    System.out.println(daftarPeminjaman.get(i));
-                }
-                menuEmpat();
-                break;
-            case 4:
-                System.out.println("Masukkan ID Peminjaman yang Akan Dicari: ");
-                idPeminjaman = input.nextInt();
-                for (Peminjaman peminjaman : daftarPeminjaman) {
-                    if (peminjaman.getIdPeminjaman() == idPeminjaman) {
-                        System.out.println(peminjaman);
-                    } else {
-                        System.out.println("data tidak ditemukan");
+                    menuEmpat();
+                    break;
+                case 3:
+                    for (int i = 0; i < (daftarPeminjaman.size()); i++) {
+                        System.out.println(daftarPeminjaman.get(i));
                     }
-                }
-                menuEmpat();
-                break;
-            case 5:
-                mainMenu();
-                break;
-        }
+                    menuEmpat();
+                    break;
+                case 4:
+                    System.out.println("Masukkan ID Peminjaman yang Akan Dicari: ");
+                    idPeminjaman = input.nextInt();
+                    for (Peminjaman peminjaman : daftarPeminjaman) {
+                        if (peminjaman.getIdPeminjaman() == idPeminjaman) {
+                            System.out.println(peminjaman);
+                        } else {
+                            System.out.println("data tidak ditemukan");
+                        }
+                    }
+                    menuEmpat();
+                    break;
+                case 5:
+                    mainMenu();
+                    break;
+            }
         } catch (Exception e) {
             System.out.println("Inputan Salah,Silahkan COba Lagi");
         }
-        
+
     }
 
     public void menuLima() {

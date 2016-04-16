@@ -5,6 +5,7 @@
  */
 package sisfo.perpustakaan;
 
+import database.database;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
@@ -23,8 +24,6 @@ public class Petugas extends Orang {
     public Petugas() {
         super();
     }
-
-   
 
     public Petugas(String nama, String password, String jenisKelamin, long id) {
         super(nama, password, jenisKelamin);
@@ -92,15 +91,10 @@ public class Petugas extends Orang {
         return "'" + masuk + "'";
     }
 
-    public ResultSet LoginStaff(String u, String p) {
+    public ResultSet LoginPetugas(String u, String p) {
         database db = new database();
-        String SQLString = "SELECT * from petugas where Id_petugas= " + getQuote(u) + " AND password = " + getQuote(p) + ";";
+        String SQLString = "SELECT * from petugas where id_petugas= " + getQuote(u) + " AND password = " + getQuote(p) + ";";
         return db.getData(SQLString);
     }
 
-    public void insertPetugas(Petugas p) {
-        database db = new database();
-        String s = "insert into anggota values(" + this.id + ",'" + this.setPassword(password) + "','" + this.setNama(nama) + "','" + this.setJenisKelamin(jenisKelamin) + "')";
-        db.query(s);
-    }
 }
