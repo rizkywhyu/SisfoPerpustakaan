@@ -100,8 +100,8 @@ public class LoginPetugas extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         sisfo.perpustakaan.Petugas p = new sisfo.perpustakaan.Petugas();
-        sisfo.perpustakaan.database db = new sisfo.perpustakaan.database();
-        ResultSet rs = p.LoginStaff(ID.getText(),Password.getText());
+        database.database db = new database.database();
+        ResultSet rs = p.LoginPetugas(ID.getText(),Password.getText());
         try {
             if(rs.next()){
                 DaftarPeminjam dp = new DaftarPeminjam();
