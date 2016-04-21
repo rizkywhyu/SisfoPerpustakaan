@@ -35,19 +35,19 @@ public class LoginPetugas extends javax.swing.JFrame {
     }
 
     public JTextField getID() {
-        return ID;
+        return tIdPetugas;
     }
 
     public void setID(JTextField ID) {
-        this.ID = ID;
+        this.tIdPetugas = ID;
     }
 
     public JTextField getPassword() {
-        return Password;
+        return tPassword;
     }
 
     public void setPassword(JTextField Password) {
-        this.Password = Password;
+        this.tPassword = Password;
     }
 
     public JButton getBtnLogin() {
@@ -71,9 +71,9 @@ public class LoginPetugas extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        ID = new javax.swing.JTextField();
+        tIdPetugas = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        Password = new javax.swing.JTextField();
+        tPassword = new javax.swing.JTextField();
         btnLogin = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -101,9 +101,9 @@ public class LoginPetugas extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel2)
-                            .addComponent(ID, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE)
+                            .addComponent(tIdPetugas, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE)
                             .addComponent(jLabel3)
-                            .addComponent(Password))
+                            .addComponent(tPassword))
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel1)
@@ -120,11 +120,11 @@ public class LoginPetugas extends javax.swing.JFrame {
                 .addGap(99, 99, 99)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tIdPetugas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnLogin)
                 .addContainerGap(29, Short.MAX_VALUE))
@@ -173,11 +173,11 @@ public class LoginPetugas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField ID;
-    private javax.swing.JTextField Password;
     private javax.swing.JButton btnLogin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JTextField tIdPetugas;
+    private javax.swing.JTextField tPassword;
     // End of variables declaration//GEN-END:variables
 }

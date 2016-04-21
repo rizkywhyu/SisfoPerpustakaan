@@ -54,15 +54,15 @@ public class CreateAccount extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        btncreate = new javax.swing.JButton();
-        nim = new javax.swing.JTextField();
-        nama = new javax.swing.JTextField();
-        jenisk = new javax.swing.JComboBox<>();
-        jur = new javax.swing.JTextField();
-        kelas = new javax.swing.JTextField();
-        tahun = new javax.swing.JTextField();
-        pass = new javax.swing.JTextField();
-        btnback = new javax.swing.JButton();
+        btnCreate = new javax.swing.JButton();
+        tNIM = new javax.swing.JTextField();
+        tNama = new javax.swing.JTextField();
+        Combobox = new javax.swing.JComboBox<>();
+        tJurusan = new javax.swing.JTextField();
+        tKelas = new javax.swing.JTextField();
+        tTahun = new javax.swing.JTextField();
+        tPassword = new javax.swing.JTextField();
+        btnBack = new javax.swing.JButton();
 
         jInternalFrame1.setVisible(true);
 
@@ -95,30 +95,30 @@ public class CreateAccount extends javax.swing.JFrame {
 
         jLabel8.setText("Password :");
 
-        btncreate.setText("Create");
-        btncreate.addActionListener(new java.awt.event.ActionListener() {
+        btnCreate.setText("Create");
+        btnCreate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btncreateActionPerformed(evt);
+                btnCreateActionPerformed(evt);
             }
         });
 
-        nim.addActionListener(new java.awt.event.ActionListener() {
+        tNIM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nimActionPerformed(evt);
+                tNIMActionPerformed(evt);
             }
         });
 
-        jenisk.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Laki-Laki", "Perempuan" }));
-        jenisk.addActionListener(new java.awt.event.ActionListener() {
+        Combobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Laki-Laki", "Perempuan" }));
+        Combobox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jeniskActionPerformed(evt);
+                ComboboxActionPerformed(evt);
             }
         });
 
-        btnback.setText("Back");
-        btnback.addActionListener(new java.awt.event.ActionListener() {
+        btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnbackActionPerformed(evt);
+                btnBackActionPerformed(evt);
             }
         });
 
@@ -130,7 +130,7 @@ public class CreateAccount extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(21, 21, 21)
-                        .addComponent(btnback))
+                        .addComponent(btnBack))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(154, 154, 154)
                         .addComponent(jLabel1))
@@ -146,15 +146,15 @@ public class CreateAccount extends javax.swing.JFrame {
                             .addComponent(jLabel6))
                         .addGap(27, 27, 27)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(nim, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                            .addComponent(nama)
-                            .addComponent(jenisk, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jur)
-                            .addComponent(kelas)
-                            .addComponent(tahun)
-                            .addComponent(pass))))
+                            .addComponent(tNIM, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                            .addComponent(tNama)
+                            .addComponent(Combobox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(tJurusan)
+                            .addComponent(tKelas)
+                            .addComponent(tTahun)
+                            .addComponent(tPassword))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
-                .addComponent(btncreate)
+                .addComponent(btnCreate)
                 .addGap(23, 23, 23))
         );
         layout.setVerticalGroup(
@@ -164,124 +164,124 @@ public class CreateAccount extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tNIM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tNama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jenisk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Combobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jur, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tJurusan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(kelas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tKelas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(tahun, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tTahun, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(pass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btncreate)
-                    .addComponent(btnback))
+                    .addComponent(btnCreate)
+                    .addComponent(btnBack))
                 .addGap(20, 20, 20))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jeniskActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jeniskActionPerformed
+    private void ComboboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboboxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jeniskActionPerformed
+    }//GEN-LAST:event_ComboboxActionPerformed
 
-    private void btnbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbackActionPerformed
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         
-    }//GEN-LAST:event_btnbackActionPerformed
+    }//GEN-LAST:event_btnBackActionPerformed
 
-    private void btncreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncreateActionPerformed
+    private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
        
-    }//GEN-LAST:event_btncreateActionPerformed
+    }//GEN-LAST:event_btnCreateActionPerformed
 
-    private void nimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nimActionPerformed
+    private void tNIMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tNIMActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_nimActionPerformed
+    }//GEN-LAST:event_tNIMActionPerformed
 
     public JButton getBtncreate() {
-        return btncreate;
+        return btnCreate;
     }
 
     public void setBtncreate(JButton btncreate) {
-        this.btncreate = btncreate;
+        this.btnCreate = btncreate;
     }
 
     public JComboBox<String> getJenisk() {
-        return jenisk;
+        return Combobox;
     }
 
     public void setJenisk(JComboBox<String> jenisk) {
-        this.jenisk = jenisk;
+        this.Combobox = jenisk;
     }
 
     public JTextField getJur() {
-        return jur;
+        return tJurusan;
     }
 
     public void setJur(JTextField jur) {
-        this.jur = jur;
+        this.tJurusan = jur;
     }
 
     public JTextField getKelas() {
-        return kelas;
+        return tKelas;
     }
 
     public void setKelas(JTextField kelas) {
-        this.kelas = kelas;
+        this.tKelas = kelas;
     }
 
     public JTextField getNama() {
-        return nama;
+        return tNama;
     }
 
     public void setNama(JTextField nama) {
-        this.nama = nama;
+        this.tNama = nama;
     }
 
     public JTextField getNim() {
-        return nim;
+        return tNIM;
     }
 
     public void setNim(JTextField nim) {
-        this.nim = nim;
+        this.tNIM = nim;
     }
 
     public JTextField getPass() {
-        return pass;
+        return tPassword;
     }
 
     public void setPass(JTextField pass) {
-        this.pass = pass;
+        this.tPassword = pass;
     }
 
     public JTextField getTahun() {
-        return tahun;
+        return tTahun;
     }
 
     public void setTahun(JTextField tahun) {
-        this.tahun = tahun;
+        this.tTahun = tahun;
     }
     public void addListener(ActionListener e){
-        btncreate.addActionListener(e);
-        btnback.addActionListener(e);
+        btnCreate.addActionListener(e);
+        btnBack.addActionListener(e);
     }
     public void showMessage(Component  c, String s){
         JOptionPane.showMessageDialog(c, s);
@@ -322,8 +322,9 @@ public class CreateAccount extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnback;
-    private javax.swing.JButton btncreate;
+    private javax.swing.JComboBox<String> Combobox;
+    private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnCreate;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -333,13 +334,12 @@ public class CreateAccount extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JComboBox<String> jenisk;
-    private javax.swing.JTextField jur;
-    private javax.swing.JTextField kelas;
-    private javax.swing.JTextField nama;
-    private javax.swing.JTextField nim;
-    private javax.swing.JTextField pass;
-    private javax.swing.JTextField tahun;
+    private javax.swing.JTextField tJurusan;
+    private javax.swing.JTextField tKelas;
+    private javax.swing.JTextField tNIM;
+    private javax.swing.JTextField tNama;
+    private javax.swing.JTextField tPassword;
+    private javax.swing.JTextField tTahun;
     // End of variables declaration//GEN-END:variables
 
     public void addListener(ControllerCreateAccount aThis) {

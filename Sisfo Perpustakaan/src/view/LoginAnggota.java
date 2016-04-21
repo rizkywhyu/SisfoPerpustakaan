@@ -39,11 +39,11 @@ public class LoginAnggota extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        NIM = new javax.swing.JTextField();
+        tNIM = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
-        pass = new javax.swing.JTextField();
+        btnLogin = new javax.swing.JButton();
+        CR = new javax.swing.JLabel();
+        tPassword = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -51,31 +51,31 @@ public class LoginAnggota extends javax.swing.JFrame {
 
         jLabel2.setText("NIM:");
 
-        NIM.addActionListener(new java.awt.event.ActionListener() {
+        tNIM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NIMActionPerformed(evt);
+                tNIMActionPerformed(evt);
             }
         });
 
         jLabel3.setText("Password:");
 
-        jButton1.setText("Login");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnLogin.setText("Login");
+        btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnLoginActionPerformed(evt);
             }
         });
 
-        jLabel4.setText("Create Account?");
-        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+        CR.setText("Create Account?");
+        CR.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel4MouseClicked(evt);
+                CRMouseClicked(evt);
             }
         });
 
-        pass.addActionListener(new java.awt.event.ActionListener() {
+        tPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                passActionPerformed(evt);
+                tPasswordActionPerformed(evt);
             }
         });
 
@@ -89,14 +89,14 @@ public class LoginAnggota extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel2)
-                            .addComponent(NIM, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
+                            .addComponent(tNIM, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
                             .addComponent(jLabel3)
-                            .addComponent(pass))
+                            .addComponent(tPassword))
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel4)
+                        .addComponent(CR)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton1)
+                        .addComponent(btnLogin)
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel1)
@@ -110,26 +110,26 @@ public class LoginAnggota extends javax.swing.JFrame {
                 .addGap(97, 97, 97)
                 .addComponent(jLabel2)
                 .addGap(4, 4, 4)
-                .addComponent(NIM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tNIM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jLabel4))
+                    .addComponent(btnLogin)
+                    .addComponent(CR))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void NIMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NIMActionPerformed
+    private void tNIMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tNIMActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_NIMActionPerformed
+    }//GEN-LAST:event_tNIMActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
 //        //sisfo.perpustakaan.Anggota a = new sisfo.perpustakaan.Anggota();
 //        database.database db = new database.database();
 //        sisfo.perpustakaan.Anggota a = new sisfo.perpustakaan.Anggota();
@@ -145,45 +145,45 @@ public class LoginAnggota extends javax.swing.JFrame {
 
        
 
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnLoginActionPerformed
 
-    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+    private void CRMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CRMouseClicked
         CreateAccount ca = new CreateAccount();
         ca.setVisible(true);
         this.setVisible(false);
         this.dispose();
-    }//GEN-LAST:event_jLabel4MouseClicked
+    }//GEN-LAST:event_CRMouseClicked
 
-    private void passActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passActionPerformed
+    private void tPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tPasswordActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_passActionPerformed
+    }//GEN-LAST:event_tPasswordActionPerformed
 
     public void addListener(ActionListener al) {
-        jButton1.addActionListener(al);
+        btnLogin.addActionListener(al);
     }
 
     public JTextField getNIM() {
-        return NIM;
+        return tNIM;
     }
 
     public void setNIM(JTextField NIM) {
-        this.NIM = NIM;
+        this.tNIM = NIM;
     }
 
     public JButton getjButton1() {
-        return jButton1;
+        return btnLogin;
     }
 
     public void setjButton1(JButton jButton1) {
-        this.jButton1 = jButton1;
+        this.btnLogin = jButton1;
     }
 
     public JTextField getPass() {
-        return pass;
+        return tPassword;
     }
 
     public void setPass(JTextField pass) {
-        this.pass = pass;
+        this.tPassword = pass;
     }
     
     
@@ -223,12 +223,12 @@ public class LoginAnggota extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField NIM;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel CR;
+    private javax.swing.JButton btnLogin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JTextField pass;
+    private javax.swing.JTextField tNIM;
+    private javax.swing.JTextField tPassword;
     // End of variables declaration//GEN-END:variables
 }
